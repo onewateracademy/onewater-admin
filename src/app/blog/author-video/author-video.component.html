@@ -1,0 +1,62 @@
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+        </ol>
+    </div>
+</div>
+
+    <!-- End Row -->
+    <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="content-head">Video By Author</h4>
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+    <div class="card-body">
+        <div class="active-member">
+            <div class="table-responsive">
+                <table class="table table-xs mb-0">
+                    <thead>
+                        <tr>
+                            <th>Author Name</th>
+                            <th>Title</th>
+                            <th>Author Email</th>
+                            <th>Date Added</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let video of videos">
+                            <td>{{video.author_name}}</td>
+                            <td>
+                                <span>{{video.title}}</span>
+                            </td>
+                            <td>
+                                <span>{{video.author_email}}</span>
+                                </td>
+                            <td>
+                                <span> {{video.date_added | date:'MMMM d, y'}} </span>
+                            </td>
+
+                            <td>
+                              <div class="action-buttons">
+                                <button type="button" name="button" class="btn view"  [routerLink]="['/authorvideodesc/',video._id]">
+                                <i class="fa fa-eye"></i>
+                                View
+                                </button>
+                              </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div></div>
+</div>

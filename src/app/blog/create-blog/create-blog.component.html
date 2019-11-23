@@ -1,0 +1,55 @@
+<div class="row">
+<div class="col-lg-12">
+    <div class="container">
+
+
+        <h4 class="content-head">Create Blog</h4>
+        <div class="card">
+            <div class="card-body">
+                <div class="basic-form">
+                    <form  [formGroup]="form" (submit)="submit()">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Blog Title</label>
+                                <input formControlName="title" type="email" class="form-control" placeholder="Title">
+                            </div>
+                        </div>
+
+                           <div class="dashboard-section media-inputs">
+
+                            <div class="form-group row">
+                              <label class="col-sm-3 col-form-label">Blog Thumbnail</label>
+                              <div class="col-sm-9">
+                                <div class="input-group image-upload-input">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input style="display: none"  type="file" #file  (change)="onImagePick($event)" >
+                                      <button type="button" (click)="file.click()">Select Image</button>
+                                    </div>
+                                  </div>
+                                  <div class="active">
+                                    <div class="upload-images">
+                                      <div class="pic" *ngIf="imagePreview!='' && imagePreview">
+
+                                          <img style="width: 120px;" [src]="imagePreview">
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                          <div  class="form-group row">
+                          <quill-editor [modules]="config" formControlName="data"></quill-editor>
+                          </div>
+
+                          <button type="submit">Update Blog</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
