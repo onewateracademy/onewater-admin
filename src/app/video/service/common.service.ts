@@ -11,8 +11,13 @@ export class CommonService{
   addvideo(values){
     const data={
       title:values.title,
+      image:values.image,
       video_link:values.video_link,
-      desc:values.desc
+      desc:values.desc,
+      category:values.category,
+      subcategory:values.subcategory,
+      likes:values.likes,
+      views:values.views
     }
     this.http.post<{status:any,msg:any,payload:any}>("https://onewater-video-api.herokuapp.com/postvideo",data)
     .subscribe(result=> {
@@ -30,7 +35,7 @@ export class CommonService{
   }
 
   getLikes(videoid){
-    return this.http.get<{items:any}>(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoid}&key=AIzaSyDAmRDLp2OJIZ8EqXblfX0glUZyEN6iG_U`);
+    return this.http.get<{items:any}>(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoid}&key=AIzaSyD6jmeUuXMKaTvrlCjsFF-Pyyg079leR28`);
   }
 
   updatelikes(values){

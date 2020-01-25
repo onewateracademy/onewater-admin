@@ -44,6 +44,10 @@ const routes: Routes = [
   loadChildren: './jobs/jobs.module#JobsModule'
 },
 {
+  path: 'instructors',
+  loadChildren: './instructors/instructors.module#InstructorsModule'
+},
+{
 path: 'subs',
 loadChildren: './user-suscribed/user-suscribed.module#UserSuscribedModule'
 }

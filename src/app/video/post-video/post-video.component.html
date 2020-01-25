@@ -39,11 +39,42 @@
                                                                   <textarea formControlName="desc" class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="What video is about?"></textarea>
                                                               </div>
                                                           </div>
+                                                          <div class="detail">
+                                                            <div class="row">
+                                                              <div class="col-lg-6">
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        <h6>Select Category</h6>
+                                                                      </div>
+                                                                      <div class="col-lg-8">
+                                                                          <div class="basic-form">
+                                                                                              <!-- <form> -->
+                                                                                                  <div class="form-group">
+                                                                                                      <select class="form-control" (change)="onChange($event)">
+                                                                                                        <option value="">Select Category</option>
+                                                                                                          <option value="water">Water</option>
+                                                                                                          <option value="wastewater">Wastewater</option>
+                                                                                                          <option value="stormwater">Stormwater</option>
+                                                                                                          <option value="research">Innovation & Research</option>
+                                                                                                          <option value="sustainable">Sustainable Development</option>
+                                                                                                          <option value="mgmt">Management & Finance</option>
+                                                                                                          <option value="leg">Legislative & Regulatory</option>
+                                                                                                      </select>
+                                                                                                  </div>
+                                                                                              <!-- </form> -->
+                                                                        </div>
+                                                                        </div>
+                                                                </div>
+                                                              </div>
+
+                                                              </div>
+                                                            </div>
                                                           <div class="form-group row">
                                                               <div class="col-lg-8 ml-auto">
                                                                   <button type="submit" class="btn btn-primary">Post Video</button>
                                                               </div>
                                                           </div>
+
                                                       </form>
                                                   </div>
                                               </div>

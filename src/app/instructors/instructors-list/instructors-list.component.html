@@ -1,0 +1,76 @@
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+        </ol>
+    </div>
+</div>
+    <!-- End Row -->
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <h4 class="content-head">Instructors List</h4>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center justify-content-end">
+          <strong>Filters</strong>
+           <button class="fil-btn">All</button>
+           <button class="fil-btn">Approved</button>
+           <button class="fil-btn">Pending</button>
+        </div>
+    </div>
+<div class="row">
+<div class="col-lg-12">
+<div class="card">
+    <div class="card-body">
+        <div class="active-member">
+            <div class="table-responsive">
+                <table class="table table-xs mb-0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Profession</th>
+                            <th>Date Added</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/images/user/1.png" class=" rounded-circle mr-3" alt="">User 1</td>
+                            <td>
+                                <span>abc@gmail.com</span>
+                            </td>
+                            <td>
+                                <span>Data Analytics</span>
+                                </td>
+                            <td>
+                              <span>24 January, 2020</span>
+                            </td>
+
+                            <td>
+                              <div class="action-buttons">
+                                <button type="button" name="button" class="btn view"  [routerLink]="['/instructors/details']">
+                                <i class="fa fa-eye"></i>
+                                View
+                                </button>
+                                <button  type="button" name="button" class="btn approved">
+                                <i class="fa fa-check-circle"></i>
+                                Approve
+                                </button>
+                                <button  type="button" name="button" class="btn decline">
+                                <i class="fa fa-times-circle"></i>
+                                Decline
+                                </button>
+                              </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
