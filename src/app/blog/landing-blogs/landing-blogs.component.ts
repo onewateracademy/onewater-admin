@@ -30,7 +30,7 @@ landingblogs = [
   constructor(public http:HttpClient) { }
 
   ngOnInit() {
-    this.http.get<{status:any, msg:any, result:any}>('http://localhost:3000/homeblog')
+    this.http.get<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/homeblog')
     .subscribe(result=>{
       console.log(result);
         this.landingblogs=result.result

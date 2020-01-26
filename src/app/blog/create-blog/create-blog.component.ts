@@ -84,7 +84,7 @@ Quill.register('modules/imageUpload', imageUpload);
     data.append('desc',this.form.value.data)
     data.append('category','Technology');
     data.append('category','Health');
-    this.http.patch('http://localhost:3000/homeblog',data)
+    this.http.patch('https://onewater-instructor-api.herokuapp.com/homeblog',data)
     .subscribe(result=>{
       console.log(result);
     })

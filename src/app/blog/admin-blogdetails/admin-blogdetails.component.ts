@@ -21,7 +21,7 @@ author;
       this.blogid=result.id
       console.log(this.blogid)
 
-      this.http.get<{status:any, msg:any, result:any}>('http://localhost:3000/homeblog/'+this.blogid)
+      this.http.get<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/homeblog/'+this.blogid)
       .subscribe(result=>{
         console.log(result)
         this.blog=result.result[0];

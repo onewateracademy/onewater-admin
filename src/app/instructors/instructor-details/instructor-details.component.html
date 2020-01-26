@@ -21,45 +21,24 @@
                           <div class="media-body">
                               <h3 class="mb-0"
                               style="letter-spacing: -0.6px;
-                                     font-weight: 600;">Name</h3>
-                              <p class="text-muted mb-0">From Miami</p>
+                                     font-weight: 600;">{{instructor?.name}}</h3>
+                              <!-- <p class="text-muted mb-0">From Miami</p> -->
                           </div>
                       </div>
 
                       <div class="row mb-5">
-                          <!-- <div class="col">
-                              <div class="card card-profile text-center">
-                                  <span class="mb-1 text-primary"><i class="icon-people"></i></span>
-                                  <h3 class="mb-0">263</h3>
-                                  <p class="text-muted px-4">Following</p>
-                              </div>
-                          </div> -->
-                          <!-- <div class="col">
-                              <div class="card card-profile text-center">
-                                  <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
-                                  <h3 class="mb-0">263</h3>
-                                  <p class="text-muted">Followers</p>
-                              </div>
-                          </div> -->
-                          <!-- <div class="col">
-                              <div class="card card-profile text-center">
-                                  <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
-                                  <h3 class="mb-0">263</h3>
-                                  <p class="text-muted">Followers</p>
-                              </div>
-                          </div> -->
 
                       </div>
 
                       <h6>About Instructor</h6>
-                     
+
                       <ul class="card-profile__info">
-                        <li><strong class="text-dark mr-4">Email</strong> <span>abc@gmail.com</span></li>
-                        <li><strong class="text-dark mr-4">Phone</strong> <span>546546554</span></li>
-                        <li><strong class="text-dark mr-4">Nationality</strong> <span>American</span></li>
-                      
-                        <li><strong class="text-dark mr-4">Profession</strong> <span>Analytics</span></li>
-                        <li><strong class="text-dark mr-4">Linkedin link</strong> <span>linked in url</span></li>
+                        <li><strong class="text-dark mr-4">Email</strong> <span>{{instructor?.email}}</span></li>
+                        <li><strong class="text-dark mr-4">Phone</strong> <span>{{instructor?.mobile_no}}</span></li>
+                        <li><strong class="text-dark mr-4">Nationality</strong> <span>{{instructor?.nationality}}</span></li>
+
+                        <li><strong class="text-dark mr-4">Profession</strong> <span>{{instructor?.profession}}</span></li>
+                        <li><strong class="text-dark mr-4">Linkedin link</strong> <span>{{instructor?.linkedIn}}</span></li>
                       </ul>
 
                   </div>
@@ -92,21 +71,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Water Conservation</td>
+                        <tr *ngFor="let course of courses">
+                            <td>{{course?.title}}</td>
                             <td>
-                                <span>Water</span>
+                                <span>{{course?.category}}</span>
                             </td>
                             <td>
-                                <span><a href="">Click here</a></span>
+                                <span><a href={{course?.content_link}}>Click here</a></span>
                                 </td>
                             <td>
-                              <span>24 January, 2020</span>
+                              <span>{{course?.date_added | date:'MMM d, y'}}</span>
                             </td>
 
                             <td>
-                              <div class="action-buttons">
-                                <button type="button" name="button" class="btn approved">
+                              <div class="action-buttons" *ngIf="course?.status != 'approved'">
+                                <button (click)="approvecourse(course._id)" type="button" name="button" class="btn approved">
                                 <i class="fa fa-check-circle"></i>
                                 Approve
                                 </button>

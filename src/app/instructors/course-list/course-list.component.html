@@ -14,9 +14,9 @@
             </div>
             <div class="col-lg-8 d-flex align-items-center justify-content-end">
               <strong>Filters</strong>
-               <button class="fil-btn">All</button>
-               <button class="fil-btn">Approved</button>
-               <button class="fil-btn">Pending</button>
+               <button class="fil-btn" (click)="allcourses()">All</button>
+               <button class="fil-btn" (click)="approvedcourses()">Approved</button>
+               <button class="fil-btn" (click)="pendingcourses()">Pending</button>
             </div>
         </div>
 <div class="row">
@@ -36,20 +36,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Water Conservation</td>
+                        <tr *ngFor="let course of courses;">
+                            <td>{{ course?.title }}</td>
                             <td>
-                                <span>Water</span>
+                                <span>{{ course?.category }}</span>
                             </td>
                             <td>
-                                <span><a href="">Click here</a></span>
+                                <span><a href="{{ course?.content_link }}">Click here</a></span>
                                 </td>
                             <td>
-                              <span>24 January, 2020</span>
+                              <span>{{ course?.date_added | date:'MMM d, y' }}</span>
                             </td>
 
                             <td>
-                              <div class="action-buttons">
+                              <div class="action-buttons" *ngIf="course?.status == 'pending'">
                                 <button type="button" name="button" class="btn approved">
                                 <i class="fa fa-check-circle"></i>
                                 Approve

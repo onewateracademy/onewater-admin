@@ -14,9 +14,9 @@
         </div>
         <div class="col-lg-8 d-flex align-items-center justify-content-end">
           <strong>Filters</strong>
-           <button class="fil-btn">All</button>
-           <button class="fil-btn">Approved</button>
-           <button class="fil-btn">Pending</button>
+           <button class="fil-btn" (click)="allinstructor()">All</button>
+           <button class="fil-btn" (click)="approvedinstructor()">Approved</button>
+           <button class="fil-btn" (click)="pendinginstructor()">Pending</button>
         </div>
     </div>
 <div class="row">
@@ -36,32 +36,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="assets/images/user/1.png" class=" rounded-circle mr-3" alt="">User 1</td>
+                        <tr *ngFor="let instructor  of instructors">
+                            <td>{{ instructor.name}}</td>
                             <td>
-                                <span>abc@gmail.com</span>
+                                <span>{{ instructor.email}}</span>
                             </td>
                             <td>
-                                <span>Data Analytics</span>
+                                <span>{{ instructor.profession}}</span>
                                 </td>
                             <td>
-                              <span>24 January, 2020</span>
+                              <span>{{ instructor.date_added | date:'MMM d, y'}}</span>
                             </td>
 
                             <td>
                               <div class="action-buttons">
-                                <button type="button" name="button" class="btn view"  [routerLink]="['/instructors/details']">
+                                <button type="button" name="button" class="btn view"  [routerLink]="['/instructors/details/',instructor._id]">
                                 <i class="fa fa-eye"></i>
                                 View
                                 </button>
-                                <button  type="button" name="button" class="btn approved">
+                                <button (click)="approveinstructor(instructor._id, instructor.email)"  type="button" name="button" class="btn approved" *ngIf="instructor.status != 'approved'">
                                 <i class="fa fa-check-circle"></i>
                                 Approve
                                 </button>
-                                <button  type="button" name="button" class="btn decline">
+                                <!-- <button  type="button" name="button" class="btn decline" *ngIf="instructor.status != 'approved'">
                                 <i class="fa fa-times-circle"></i>
                                 Decline
-                                </button>
+                                </button> -->
                               </div>
                             </td>
                         </tr>

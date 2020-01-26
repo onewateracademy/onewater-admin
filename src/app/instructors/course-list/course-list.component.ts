@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-course-list',
@@ -7,9 +8,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseListComponent implements OnInit {
 
-  constructor() { }
+  constructor( public http: HttpClient) { }
+  courses;
 
   ngOnInit() {
+    this.http.get<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/getcourses')
+    .subscribe(result=> {
+      this.courses = result.result;
+      console.log(this.courses);
+    })
   }
 
+  allcourses(){
+    this.http.get<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/getcourses')
+    .subscribe(result=> {
+      console.log(result);
+      this.courses = result.result
+    })
+  }
+
+  approvedcourses(){
+    this.http.get<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/getapprovedcourses')
+    .subscribe(result=> {
+      console.log(result);
+      this.courses = result.result
+    })
+  }
+
+
+  pendingcourses(){
+    this.http.get<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/getpendingcourses')
+    .subscribe(result=> {
+      console.log(result);
+      this.courses = result.result
+    })
+  }
 }
