@@ -9,27 +9,27 @@ export class AuthorOperationService {
   constructor(public http: HttpClient){}
 
   getNotApprovedAuthor(){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/notauthor');
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/notauthor');
   }
 
   getSingleNotApprovedAuthor(id){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/notauthor/'+id);
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/notauthor/'+id);
   }
 
   getSingleApprovedAuthor(id){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/approvedauthor/'+id);
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/approvedauthor/'+id);
   }
 
   getAllAuthor(){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/allauthor');
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/allauthor');
   }
 
   getSingleAllAuthor(id){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/allauthor/'+id);
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/allauthor/'+id);
   }
 
   getApprovedAuthor(){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/approvedauthor');
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/approvedauthor');
   }
 
   approveAuthor(mainid,blogid){
@@ -37,7 +37,7 @@ export class AuthorOperationService {
       mainid:mainid,
       id:blogid
     }
-    this.http.post<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/approve-author',id)
+    this.http.post<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/approve-author',id)
     .subscribe(result =>{
       console.log(result.msg);
       console.log(result);
@@ -49,7 +49,7 @@ export class AuthorOperationService {
       mainid:mainid,
       id:blogid
     }
-    this.http.post<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/reject-author',id)
+    this.http.post<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/reject-author',id)
     .subscribe(result =>{
       console.log(result.msg);
       console.log(result);

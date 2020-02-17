@@ -26,7 +26,7 @@ export class ApprovedBlogComponent implements OnInit {
       id:id,
       mainid:mainid
     }
-    this.http.post('http://localhost:3000/approvedblog',data)
+    this.http.post('https://onewater-instructor-api.herokuapp.com/approvedblog',data)
     .subscribe(result=>{
       console.log(result);
       alert("BLog Deleted Successfully")

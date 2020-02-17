@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: './instructors-list/instructors-list.module#InstructorsListModule'
   },
   {
-    path: 'details',
+    path: 'details/:id',
     loadChildren: './instructor-details/instructor-details.module#InstructorDetailsModule'
   },
   {

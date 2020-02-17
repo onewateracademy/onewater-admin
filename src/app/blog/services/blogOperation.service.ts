@@ -9,27 +9,27 @@ export class BlogOperationService {
   constructor(public http: HttpClient){}
 
   getNotApprovedBlogs(){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/notblogs');
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/notblogs');
   }
 
   getApprovedBlogs(){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/approveblogs');
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/approveblogs');
   }
 
   getAllBlogs(){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/allblogs');
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/allblogs');
   }
 
   getParticularNotBlogs(blogid){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/singlenotappblog/'+blogid);
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/singlenotappblog/'+blogid);
   }
 
   getParticularAllBlogs(blogid){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/allblogs/'+blogid);
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/allblogs/'+blogid);
   }
 
   getParticularApproveBlogs(blogid){
-    return this.http.get<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/singleappblog/'+blogid);
+    return this.http.get<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/singleappblog/'+blogid);
   }
 
   approve(blogid,mainid,category, subcategory){
@@ -39,7 +39,7 @@ export class BlogOperationService {
       category:category,
       subcategory:subcategory
     }
-      this.http.post<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/approve-blog',id)
+      this.http.post<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/approve-blog',id)
       .subscribe(result=> {
         console.log(result)
         alert(result.msg)
@@ -51,7 +51,7 @@ export class BlogOperationService {
       mainid:mainid,
       id:blogid
     }
-      this.http.post<{status:any,msg:any,result:any}>('https://onewater-blog-api.herokuapp.com/reject-blog',id)
+      this.http.post<{status:any,msg:any,result:any}>('https://onewateracademy-blogapi.herokuapp.com/reject-blog',id)
       .subscribe(result=> {
         console.log(result)
       })

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-instructor-details',
@@ -7,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstructorDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public route: ActivatedRoute, public http: HttpClient) { }
+  instructorid;
+  instructor;
+  courses;
 
   ngOnInit() {
+    this.route.params.subscribe(result =>{
+      console.log(result);
+      this.instructorid = result.id
+    })
+
+    this.http.get<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/getinstructor/'+this.instructorid)
+    .subscribe(result=> {
+      this.instructor = result.result[0];
+      console.log(this.instructor);
+    })
+
+    this.http.get<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/getinstructorcourses/'+this.instructorid)
+    .subscribe(result=> {
+      this.courses = result.result;
+      console.log(this.courses);
+    })
+  }
+
+  approvecourse(id){
+    this.http.post<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/updatecoursestatus/',{id:id})
+    .subscribe(result=> {
+      console.log(result);
+      alert(result.msg);
+    })
   }
 
 }

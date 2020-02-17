@@ -38,7 +38,7 @@ export class CreateBlogComponent implements OnInit {
         const imageform = new FormData();
         imageform.append('image',this.image.value.image);
         return new Promise((resolve, reject) => {
-          this.http.post<{imagepath:any}>('https://onewater-blog-api.herokuapp.com/addimage',imageform)
+          this.http.post<{imagepath:any}>('https://onewateracademy-blogapi.herokuapp.com/addimage',imageform)
           .subscribe(result=>{
             console.log('result hit',result);
             resolve(result.imagepath)
@@ -84,7 +84,7 @@ Quill.register('modules/imageUpload', imageUpload);
     data.append('desc',this.form.value.data)
     data.append('category','Technology');
     data.append('category','Health');
-    this.http.patch('http://localhost:3000/homeblog',data)
+    this.http.patch('https://onewater-instructor-api.herokuapp.com/homeblog',data)
     .subscribe(result=>{
       console.log(result);
     })
