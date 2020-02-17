@@ -43,4 +43,11 @@ export class CourseListComponent implements OnInit {
       this.courses = result.result
     })
   }
+  approvecourse(id){
+    this.http.post<{status:any, msg:any, result:any}>('https://onewater-instructor-api.herokuapp.com/updatecoursestatus/',{id:id})
+    .subscribe(result=> {
+      console.log(result);
+      alert(result.msg);
+    })
+  }
 }
