@@ -14,7 +14,7 @@ export class AuthorVideoDescComponent implements OnInit {
   ngOnInit() {
 
     this.route.params.subscribe(result=>{
-      this.http.get<{status:any, msg:any, result:any}>('https://onewateracademy-blogapi.herokuapp.com/video/'+result.id)
+      this.http.get<{status:any, msg:any, result:any}>('https://onewater-blogapi.herokuapp.com/video/'+result.id)
       .subscribe(result=>{
         this.video=result.result[0];
         console.log(this.video)

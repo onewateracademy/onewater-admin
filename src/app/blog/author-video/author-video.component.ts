@@ -12,7 +12,7 @@ export class AuthorVideoComponent implements OnInit {
   constructor(public http:HttpClient) { }
 
   ngOnInit() {
-    this.http.get<{status:any, msg:any, result:any}>('https://onewateracademy-blogapi.herokuapp.com/video')
+    this.http.get<{status:any, msg:any, result:any}>('https://onewater-blogapi.herokuapp.com/video')
     .subscribe(result=>{
       this.videos=result.result.reverse();
       console.log(this.videos)
