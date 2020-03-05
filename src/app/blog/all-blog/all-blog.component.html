@@ -29,6 +29,8 @@
                                   <div class="card-footer">
                                       <p class="card-text d-inline"><small class="text-muted">{{blog.date_added | date:'MMMM d, y'}}</small>
                                       </p><a [routerLink]="['/blog/blogdetails/',blog._id]" class="card-link float-right"><small>View</small></a>
+                                      <a *ngIf="blog?.status == 'approved'" (click)="deleteApproveBlog(blog._id,blog.approved_id)" class="card-link float-right"><small>Deletea</small></a>
+                                      <a *ngIf="blog?.status == 'pending'" (click)="deleteUnApproveBlog(blog._id,blog.unapproved_id)" class="card-link float-right"><small>Deleteu</small></a>
                                   </div>
                               </div>
                           </div>

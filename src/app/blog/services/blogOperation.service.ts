@@ -35,10 +35,11 @@ export class BlogOperationService {
   approve(blogid,mainid,category, subcategory){
     const id={
       mainid:mainid,
-      id:blogid,
+      unapproveid:blogid,
       category:category,
       subcategory:subcategory
     }
+    console.log('id details',id)
       this.http.post<{status:any,msg:any,result:any}>('https://onewater-blogapi.herokuapp.com/approve-blog',id)
       .subscribe(result=> {
         console.log(result)
@@ -55,5 +56,25 @@ export class BlogOperationService {
       .subscribe(result=> {
         console.log(result)
       })
+  }
+
+  deleteApproveBlog(mainid,approveid) {
+    const id = {
+      mainid : mainid,
+      approveid:approveid
+    }
+    return this.http.post<{ status: string; msg: string; result: any }>(
+      "https://onewater-blogapi.herokuapp.com/deleteapproveblog",id
+    );
+  }
+
+  deleteUnApproveBlog(mainid,unapproveid) {
+    const id = {
+      mainid : mainid,
+      unapproveid:unapproveid
+    }
+    return this.http.post<{ status: string; msg: string; result: any }>(
+      "https://onewater-blogapi.herokuapp.com/deleteunapproveblog",id
+    );
   }
 }

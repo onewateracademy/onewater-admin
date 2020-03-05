@@ -11,7 +11,7 @@ export class AllBlogComponent implements OnInit {
 
   public allblogs;
   author;
-  constructor(public blogservice:BlogOperationService, public authorservice:AuthorOperationService) { }
+  constructor(public blogservice:BlogOperationService, public authorservice:AuthorOperationService,) { }
 
   ngOnInit() {
       this.blogservice.getAllBlogs()
@@ -21,6 +21,20 @@ export class AllBlogComponent implements OnInit {
       })
   }
 
+  deleteApproveBlog(main_id,approved_id) {
+    console.log(main_id,approved_id)
+    this.blogservice.deleteApproveBlog(main_id,approved_id)
+    .subscribe(result=> {
+      alert("Blog Deleted Successfully");
+    })
+  }
 
+  deleteUnApproveBlog(main_id,unapproved_id) {
+    console.log(main_id,unapproved_id)
+    this.blogservice.deleteUnApproveBlog(main_id,unapproved_id)
+    .subscribe(result=> {
+      alert("Blog Deleted Successfully");
+    })
+  }
 
 }
