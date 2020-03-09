@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CroBlogdetailsComponent implements OnInit {
 
+  showSubcatrgory: true;
+  onChangesub(){};
+  onChange(){};
   constructor() { }
 
   ngOnInit() {

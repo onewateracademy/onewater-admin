@@ -12,6 +12,8 @@ export class MayorBlogdetailsComponent implements OnInit {
   category;
   subcategory;
   showSubcatrgory;
+  onChangesub(){};
+  onChange(){};
   constructor() { }
 
   ngOnInit() {
