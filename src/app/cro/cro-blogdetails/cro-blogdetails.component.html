@@ -1,0 +1,191 @@
+<div class="row page-titles mx-0">
+    <div class="col p-md-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-col-md-3"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-col-md-3 active"><a href="javascript:void(0)">Home</a></li>
+        </ol>
+    </div>
+  </div>
+  
+    <!-- End Row -->
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="content-head">CRO Blog Details</h4>
+    </div>
+    </div>
+    <div class="container">
+    <div class="detail-section">
+      <div class="detail">
+    <div class="row">
+      <div class="col-lg-2">
+        <h6>Title</h6>
+      </div>
+      <div class="col-lg-10">
+        <p>
+          {{blog?.title}}
+        </p>
+      </div>
+    </div>
+    </div>
+    <div class="detail">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-4">
+          <h6>CRO</h6>
+        </div>
+        <div class="col-lg-8">
+          <h6>
+          <a href="#">CRO Name</a>
+          </h6>
+        </div>
+      </div>
+    </div>
+  <div class="col-lg-6">
+    <div class="row">
+      <div class="col-lg-4">
+        <h6>Status</h6>
+      </div>
+      <div class="col-lg-8">
+        <p class="status-btn" style="background-color:#ff988e;color:#bd0303">Pending</p>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+  <div class="detail">
+  <div class="row">
+  <div class="col-lg-2">
+    <h6>Content</h6>
+  </div>
+  <div  class="col-lg-10">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit amet architecto corporis, commodi hic aut suscipit necessitatibus impedit sit est excepturi possimus eligendi ipsa blanditiis repellat temporibus natus dolor magnam dolorum porro animi? Blanditiis dolore, sequi perferendis doloribus ducimus atque. Amet vitae sed dolor unde, voluptas iusto culpa minima, ex dolorem exercitationem consequatur labore? Veniam architecto, harum recusandae dolorum optio vel eligendi esse iusto culpa odit ex omnis soluta. Necessitatibus illum nemo quidem commodi perspiciatis, repellendus veniam tenetur eum nesciunt! Nulla animi repellendus itaque similique vel rem molestias explicabo repellat amet illum. Delectus natus nostrum laudantium officia aliquid dolores ex.
+  </div>
+  </div>
+  </div>
+  <div class="detail">
+  </div>
+  <div class="detail" >
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="row">
+          <div class="col-lg-4">
+              <h6>Select Category</h6>
+            </div>
+            <div class="col-lg-8">
+                <div class="basic-form">
+                                    <form>
+                                        <div class="form-group">
+                                            <select class="form-control" (change)="onChange($event)">
+                                              <option value="">Select Category</option>
+                                                <option value="water">Water</option>
+                                                <option value="wastewater">Wastewater</option>
+                                                <option value="stormwater">Stormwater</option>
+                                                <option value="research">Innovation & Research</option>
+                                                <option value="sustainable">Sustainable Development</option>
+                                                <option value="mgmt">Management & Finance</option>
+                                                <option value="leg">Legislative & Regulatory</option>
+                                            </select>
+                                        </div>
+                                    </form>
+              </div>
+              </div>
+      </div>
+    </div>
+  
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-lg-4">
+                <h6>Select Subcategory</h6>
+              </div>
+              <div class="col-lg-8">
+                  <div class="basic-form">
+                                      <form>
+                                          <div class="form-group">
+                                              <select class="form-control" (change)="onChangesub($event)" id="water" *ngIf="showSubcatrgory=='water'">
+                                                <option value="">Select Subcategory</option>
+                                                  <option value="distribution"> Distribution System</option>
+                                                  <option value="conservation">Water Conservation</option>
+                                                  <option value="drinking"> Drinking Water Quality</option>
+                                                  <option value="watertreatment"> Water Treatment & Operations</option>
+                                                  <option value="desalination">Desalination</option>
+  
+                                              </select>
+                                              <select class="form-control" (change)="onChangesub($event)" id="wastewater" *ngIf="showSubcatrgory=='wastewater'">
+                                                  <option value="">Select Subcategory</option>
+                                                    <option value="biosolids">Biosolids</option>
+                                                    <option value="collection">Collection Systems</option>
+                                                    <option value="reuse">Water Reuse and Resource Recovery</option>
+                                                    <option value="odor">Odor and corrosion management</option>
+                                                    <option value="wastewatertreatment"> Wastewater treatment & Operations</option>
+  
+                                                </select>
+  
+                                                <select class="form-control" (change)="onChangesub($event)" id="stormwater" *ngIf="showSubcatrgory=='stormwater'">
+                                                    <option value="">Select Subcategory</option>
+                                                      <option value="watershed">Watershed</option>
+                                                      <option value="hydrology">Hydrology</option>
+                                                  </select>
+                                                  <select class="form-control" id="research" *ngIf="showSubcatrgory=='research'">
+                                                      <option value="">Select Subcategory</option>
+                                                        <option value="waterscience">Water Science & Research</option>
+                                                        <option value="students">Students</option>
+                                                        <option value="youngpros">Young Professionals</option>
+  
+                                                    </select>
+                                                    <select class="form-control" (change)="onChangesub($event)" id="sustainable" *ngIf="showSubcatrgory=='sustainable'">
+                                                        <option value="">Select Subcategory</option>
+                                                          <option value="climate"> Climate Change</option>
+                                                          <option value="resiliency">Resiliency</option>
+                                                          <option value="energy">Energy</option>
+                                                          <option value="reg">Regional Activities/ Cast Studies</option>
+                                                      </select>
+                                                       <select class="form-control" (change)="onChangesub($event)" id="mgmt" *ngIf="showSubcatrgory=='mgmt'">
+                                                          <option value="">Select Subcategory</option>
+                                                            <option value="workforce">Workforce Development</option>
+                                                            <option value="asset">Asset management</option>
+                                                            <option value="util">Utility management</option>
+                                                            <option value="finance">Financing</option>
+                                                            <option value="cons"> Construction management</option>
+                                                            <option value="leader">Leadership</option>
+                                                        </select>
+  
+                                                        <select class="form-control"(change)="onChangesub($event)" id="leg" *ngIf="showSubcatrgory=='leg'">
+                                                            <option value="">Select Subcategory</option>
+                                                              <option value="govt">Government Affairs</option>
+                                                              <option value="safety">Safety and Security</option>
+  
+                                                          </select>
+                                          </div>
+                                      </form>
+                </div>
+                </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <!-- *ngIf="blog?.approved_id!='null'; else other_content" -->
+  <div class="row justify-content-end">
+    <div class="col-6">
+  <div class="row mt-4">
+    <div class="col-6">
+        <button type="button" class="btn mb-1 btn-success">Approve</button>
+    </div>
+    <div class="col-6">
+        <button type="button" class="btn mb-1 btn-danger" >Reject</button>
+    </div>
+  </div>
+    </div>
+    <!-- <ng-template #other_content>
+    <div class="col-12 text-center">
+      <button type="button" class="btn mb-1 btn-primary" (click)="approve(blog._id, blog.main_id)">Approve2</button>
+      <button type="button" class="btn mb-1 btn-primary" (click)="reject(blog._id, blog.main_id)">Reject2</button>
+    </div>
+  </ng-template> -->
+  </div>
+  </div>
+  </div>
+  </div>
+  

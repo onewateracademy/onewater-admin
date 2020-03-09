@@ -40,6 +40,14 @@ const routes: Routes = [
   loadChildren: './blog/blog.module#BlogModule'
 },
 {
+  path: 'mayor',
+  loadChildren: './mayor/mayor.module#MayorModule'
+},
+{
+  path: 'cro',
+  loadChildren: './cro/cro.module#CroModule'
+},
+{
   path: 'jobs',
   loadChildren: './jobs/jobs.module#JobsModule'
 },
