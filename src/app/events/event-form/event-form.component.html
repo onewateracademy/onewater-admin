@@ -15,32 +15,41 @@
             Event form
         </h4>
         <div class="row justify-content-center">
-           
+
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="form-valide" action="#" method="post">
-                               
+                            <form class="form-valide" [formGroup]="event" (submit)="addEvent()">
+
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-number">Event Name <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="val-number" name="name" placeholder="Enter name of the event">
+                                        <input formControlName="name" type="text" class="form-control" id="val-number" name="name" placeholder="Enter name of the event">
+                                        <div class="form-group" *ngIf=" event.get('name').invalid &&submited" >
+                                          <p>Event Name is required!</p>
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-range">Event Description<span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="desc" name="val-range" placeholder="Enter description">
+                                        <input formControlName="desc" type="text" class="form-control" id="desc" name="val-range" placeholder="Enter description">
+                                        <div class="form-group" *ngIf=" event.get('desc').invalid &&submited" >
+                                          <p>Event Description is required!</p>
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-range">Event Date<span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="date" class="form-control" id="desc" name="date" placeholder="Enter event date">
+                                        <input formControlName="date_of_event" type="date" class="form-control" id="desc" name="date" placeholder="Enter event date">
+                                        <div class="form-group" *ngIf=" event.get('date_of_event').invalid &&submited" >
+                                          <p>Event Date is required!</p>
+                                      </div>
                                     </div>
                                 </div>
 
@@ -48,7 +57,10 @@
                                     <label class="col-lg-4 col-form-label" for="val-range">Event Link<span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control" id="desc" name="link" placeholder="Paste event link">
+                                        <input formControlName="link" type="text" class="form-control" id="desc" name="link" placeholder="Paste event link">
+                                        <div class="form-group" *ngIf=" event.get('link').invalid &&submited" >
+                                          <p>Event link is required!</p>
+                                      </div>
                                     </div>
                                 </div>
 
@@ -56,17 +68,19 @@
                                     <label class="col-lg-4 col-form-label" for="val-range">Event Image<span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="file" class="form-control" id="desc" name="img" placeholder="Select event image">
+                                        <input (change)="onImagePick($event)" type="file" class="form-control" id="desc" name="img" placeholder="Select event image">
 
-                                        <div class="pre-img">
-                                            <img src="https://images.pexels.com/photos/2466822/pexels-photo-2466822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                                        <div class="pre-img" *ngIf="imagePreview!='' && imagePreview">
+                                            <img [src]="imagePreview" alt="">
                                         </div>
-    
+                                        <div class="form-group" *ngIf=" event.get('image').invalid &&submited" >
+                                          <p>Event Image is required!</p>
+                                      </div>
                                     </div>
 
-                                  
+
                                 </div>
-                               
+
                                 <div class="form-group row">
                                     <div class="col-lg-8 ml-auto">
                                         <button type="submit" class="btn btn-primary">Submit</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-event-list',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventListComponent implements OnInit {
 
-  constructor() { }
+  events;
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get<{status: any, msg: any, result: any}>('https://onewater-auth.herokuapp.com/all-event')
+    .subscribe(result=> {
+      console.log(result);
+      this.events = result.result
+    })
   }
 
 }
