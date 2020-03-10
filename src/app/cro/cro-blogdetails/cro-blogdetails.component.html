@@ -6,7 +6,7 @@
         </ol>
     </div>
   </div>
-  
+
     <!-- End Row -->
   <div class="container">
     <div class="row">
@@ -23,7 +23,7 @@
       </div>
       <div class="col-lg-10">
         <p>
-         CRO BLOG title
+         {{blog?.title}}
         </p>
       </div>
     </div>
@@ -37,7 +37,7 @@
         </div>
         <div class="col-lg-8">
           <h6>
-          <a href="#">CRO Name</a>
+          <a href="#"> {{blog?.cro_name}}</a>
           </h6>
         </div>
       </div>
@@ -59,8 +59,7 @@
   <div class="col-lg-2">
     <h6>Content</h6>
   </div>
-  <div  class="col-lg-10">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit amet architecto corporis, commodi hic aut suscipit necessitatibus impedit sit est excepturi possimus eligendi ipsa blanditiis repellat temporibus natus dolor magnam dolorum porro animi? Blanditiis dolore, sequi perferendis doloribus ducimus atque. Amet vitae sed dolor unde, voluptas iusto culpa minima, ex dolorem exercitationem consequatur labore? Veniam architecto, harum recusandae dolorum optio vel eligendi esse iusto culpa odit ex omnis soluta. Necessitatibus illum nemo quidem commodi perspiciatis, repellendus veniam tenetur eum nesciunt! Nulla animi repellendus itaque similique vel rem molestias explicabo repellat amet illum. Delectus natus nostrum laudantium officia aliquid dolores ex.
+  <div [innerHTML]="blog?.desc" class="col-lg-10">
   </div>
   </div>
   </div>
@@ -93,7 +92,7 @@
               </div>
       </div>
     </div>
-  
+
     <div class="col-lg-6">
         <div class="row">
             <div class="col-lg-4">
@@ -110,7 +109,7 @@
                                                   <option value="drinking"> Drinking Water Quality</option>
                                                   <option value="watertreatment"> Water Treatment & Operations</option>
                                                   <option value="desalination">Desalination</option>
-  
+
                                               </select>
                                               <select class="form-control" (change)="onChangesub($event)" id="wastewater" *ngIf="showSubcatrgory=='wastewater'">
                                                   <option value="">Select Subcategory</option>
@@ -119,9 +118,9 @@
                                                     <option value="reuse">Water Reuse and Resource Recovery</option>
                                                     <option value="odor">Odor and corrosion management</option>
                                                     <option value="wastewatertreatment"> Wastewater treatment & Operations</option>
-  
+
                                                 </select>
-  
+
                                                 <select class="form-control" (change)="onChangesub($event)" id="stormwater" *ngIf="showSubcatrgory=='stormwater'">
                                                     <option value="">Select Subcategory</option>
                                                       <option value="watershed">Watershed</option>
@@ -132,7 +131,7 @@
                                                         <option value="waterscience">Water Science & Research</option>
                                                         <option value="students">Students</option>
                                                         <option value="youngpros">Young Professionals</option>
-  
+
                                                     </select>
                                                     <select class="form-control" (change)="onChangesub($event)" id="sustainable" *ngIf="showSubcatrgory=='sustainable'">
                                                         <option value="">Select Subcategory</option>
@@ -150,12 +149,12 @@
                                                             <option value="cons"> Construction management</option>
                                                             <option value="leader">Leadership</option>
                                                         </select>
-  
+
                                                         <select class="form-control"(change)="onChangesub($event)" id="leg" *ngIf="showSubcatrgory=='leg'">
                                                             <option value="">Select Subcategory</option>
                                                               <option value="govt">Government Affairs</option>
                                                               <option value="safety">Safety and Security</option>
-  
+
                                                           </select>
                                           </div>
                                       </form>
@@ -163,7 +162,7 @@
                 </div>
         </div>
       </div>
-  
+
     </div>
   </div>
   <!-- *ngIf="blog?.approved_id!='null'; else other_content" -->
@@ -171,7 +170,7 @@
     <div class="col-6">
   <div class="row mt-4">
     <div class="col-6">
-        <button type="button" class="btn mb-1 btn-success">Approve</button>
+        <button (click)="approve(blog?._id,blog?.main_id)" type="button" class="btn mb-1 btn-success">Approve</button>
     </div>
     <div class="col-6">
         <button type="button" class="btn mb-1 btn-danger" >Reject</button>
@@ -188,4 +187,3 @@
   </div>
   </div>
   </div>
-  

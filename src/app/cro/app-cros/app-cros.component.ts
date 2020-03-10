@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-app-cros',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppCrosComponent implements OnInit {
 
-  constructor() { }
+  cros;
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get<{status: any, msg: any, result: any}>('https://onewater-cro.herokuapp.com/approvedcro')
+    .subscribe(result=> {
+      console.log(result);
+      this.cros = result.result;
+    })
   }
 
 }

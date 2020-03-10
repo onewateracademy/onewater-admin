@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-app-mayors',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-mayors.component.scss']
 })
 export class AppMayorsComponent implements OnInit {
-
-  constructor() { }
+  mayors;
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get<{status: any, msg: any, result: any}>('https://onewater-mayor.herokuapp.com/approvedmayor')
+    .subscribe(result=> {
+      console.log(result)
+      this.mayors = result.result;
+    })
   }
 
 }

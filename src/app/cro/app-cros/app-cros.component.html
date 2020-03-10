@@ -23,36 +23,36 @@
                         <tr>
                             <th>Mayor Name</th>
                             <th>Date Added</th>
-                       
-                            <th>Status</th>
+
+                            <th>Email</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="https://images.pexels.com/photos/2741361/pexels-photo-2741361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class=" rounded-circle mr-3" alt="">Mayor</td>
-                            <td>
-                                <span>12,March 2020</span>
-                            </td>
-                            <!-- <td>
-                                <span>{{author.interest_category}}</span>
-                                </td> -->
-                            <td>
-                              <!-- <p *ngIf="!author.rejected" class="status-btn" [ngStyle]="{
-                                'background-color':author.status === 'approved' ? '#8eff96' : '#FFFF33' ,'color':author.status === 'approved' ? '#015a01' : '#333300' }
-                              ">{{author.status}}</p> -->
-                              <p  class="status-btn" style="background-color: #ff988e ;color: #bd0303'">pending</p>
-                            </td>
+                      <tr *ngFor="let cro of cros">
+                        <td><img src="{{cro?.image}}" class=" rounded-circle mr-3" alt="">{{ cro?.name }}</td>
+                        <td>
+                            <span>{{cro?.date_added | date:'MMMM d, y'}}</span>
+                        </td>
+                        <!-- <td>
+                            <span>{{author.interest_category}}</span>
+                            </td> -->
+                        <td>
+                          <!-- <p *ngIf="!cro.rejected" class="status-btn" [ngStyle]="{
+                            'background-color':cro.status === 'approved' ? '#8eff96' : '#FFFF33' ,'color':cro.status === 'approved' ? '#015a01' : '#333300' }
+                          ">{{cro.status}}</p> -->
+                          <p  class="status-btn">{{cro?.email}}</p>
+                        </td>
 
-                            <td>
-                              <div class="action-buttons">
-                                <button type="button" name="button" class="btn view"  [routerLink]="['/cro/crodetails/']">
-                                <i class="fa fa-eye"></i>
-                                View
-                                </button>
-                              </div>
-                            </td>
-                        </tr>
+                        <td>
+                          <div class="action-buttons">
+                            <button type="button" name="button" class="btn view"  [routerLink]="['/cro/crodetails/',cro?._id]">
+                            <i class="fa fa-eye"></i>
+                            View
+                            </button>
+                          </div>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

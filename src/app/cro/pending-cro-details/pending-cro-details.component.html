@@ -17,53 +17,26 @@
               <div class="card">
                   <div class="card-body">
                       <div class="media align-items-center mb-4">
-                          <img class="mr-3" src="https://images.pexels.com/photos/2741361/pexels-photo-2741361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="80" height="80" alt="">
+                          <img class="mr-3" src="{{cro?.image}}" width="80" height="80" alt="">
                           <div class="media-body">
                               <h3 class="mb-0"
                               style="letter-spacing: -0.6px;
-                                     font-weight: 600;">CRO Name</h3>
-                              <p class="text-muted mb-0">CRO Location</p>
+                                     font-weight: 600;">{{cro?.name}}</h3>
+                              <p class="text-muted mb-0">{{cro?.location}}</p>
                           </div>
-                      </div>
-
-                      <div class="row mb-5">
-                          <div class="col">
-                              <div class="card card-profile text-center">
-                                  <span class="mb-1 text-primary"><i class="icon-people"></i></span>
-                                  <h3 class="mb-0">263</h3>
-                                  <p class="text-muted px-4">Following</p>
-                              </div>
-                          </div>
-                          <!-- <div class="col">
-                              <div class="card card-profile text-center">
-                                  <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
-                                  <h3 class="mb-0">263</h3>
-                                  <p class="text-muted">Followers</p>
-                              </div>
-                          </div> -->
-                          <div class="col">
-                              <div class="card card-profile text-center">
-                                  <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
-                                  <h3 class="mb-0">263</h3>
-                                  <p class="text-muted">Followers</p>
-                              </div>
-                          </div>
-
                       </div>
 
                       <h6>About Author</h6>
-                      <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore cum alias, minus porro quia tempora? Velit, aut dolorum impedit saepe recusandae, unde officiis incidunt eum at consectetur officia expedita ab nostrum molestiae, illum possimus culpa. Labore consequatur unde fugit laudantium asperiores voluptates aperiam, nam officia, pariatur sit praesentium consectetur eaque!</p>
+                      <p class="text-muted">{{cro?.bio}}</p>
                       <ul class="card-profile__info">
-                        <li><strong class="text-dark mr-4">Email</strong> <span>author?.email</span></li>
-                        <li><strong class="text-dark mr-4">Facebook link</strong> <span>author?.facebook_id</span></li>
-                        <li><strong class="text-dark mr-4">Twitter link</strong> <span>author?.twitter_id</span></li>
-                        <li><strong class="text-dark mr-4">Linkedin link</strong> <span>author?.linkedIn_id</span></li>
-                        <li><strong class="text-dark mr-4">Instagrm link</strong> <span>author?.instagram_id</span></li>
+                        <li><strong class="text-dark mr-4">Email</strong> <span>{{cro?.email}}</span></li>
+                        <li><strong class="text-dark mr-4">Twitter link</strong> <span>{{cro?.twitter_id}}</span></li>
+                        <li><strong class="text-dark mr-4">Linkedin link</strong> <span>{{cro?.linkedIn_id}}</span></li>
                       </ul>
 
                       <div class="buttons">
-                        <button  class="btn btn-success px-5">Approve</button>
-                        <button  class="btn btn-danger px-5">Decline</button>
+                        <button (click)="approve(cro?._id, cro?.main_id)" type="button" class="btn btn-success px-5">Approve</button>
+                        <button (click)="reject(cro?._id, cro?.main_id)" type="button" class="btn btn-danger px-5">Decline</button>
                       </div>
 
                   </div>

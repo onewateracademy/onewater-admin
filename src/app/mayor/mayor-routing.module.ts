@@ -27,15 +27,15 @@ const routes: Routes = [
     loadChildren: './app-mayors/app-mayors.module#AppMayorsModule'
   },
   {
-    path: 'mayordetails',
+    path: 'mayordetails/:id',
     loadChildren: './mayor-details/mayor-details.module#MayorDetailsModule'
   },
   {
-    path: 'pendingmayordetails',
+    path: 'pendingmayordetails/:id',
     loadChildren: './pending-mayor-details/pending-mayor-details.module#PendingMayorDetailsModule'
   },
   {
-    path: 'mayor-blogdetails',
+    path: 'mayor-blogdetails/:id',
     loadChildren: './mayor-blogdetails/mayor-blogdetails.module#MayorBlogdetailsModule'
   },
 ];
