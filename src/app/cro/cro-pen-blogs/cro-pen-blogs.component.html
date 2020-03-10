@@ -14,12 +14,12 @@
             <h4 class="content-head">CRO Pending Blogs</h4>
             <!-- <p class="text-muted">This is 3 column contents</p> -->
             <div class="row">
-                 <div class="col-lg-4 col-md-6" >
+                 <div class="col-lg-4 col-md-6" *ngFor="let blog of blogs">
                     <div class="card">
-                        <img class="blog-img" src="https://images.pexels.com/photos/2508810/pexels-photo-2508810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                        <img class="blog-img" src="{{blog?.image}}" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">Blog Title</h5>
-                            <p class="card-text">Blog Author Name</p>
+                            <h5 class="card-title">{{blog?.title}}</h5>
+                            <p class="card-text">{{blog?.cro_name}}</p>
                            <!-- <p *ngIf="!blog.rejected  && blog.status!='deleted'" class="status-btn" [ngStyle]="{
                               'background-color':blog.status === 'approved' ? '#8eff96' : '#FFFF33' ,'color':blog.status === 'approved' ? '#015a01' : '#333300' }
                             ">{{blog.status}}</p> -->
@@ -27,8 +27,8 @@
                             <!-- <p *ngIf="blog.rejected" class="status-btn" style="background-color: #ff988e ;color: #bd0303'">{{blog.status}}</p> -->
                         </div>
                         <div class="card-footer">
-                            <p class="card-text d-inline"><small class="text-muted">12, March 2020</small>
-                            </p><a [routerLink]="['/cro/cro-blogdetails']" class="card-link float-right"><small>View</small></a>
+                            <p class="card-text d-inline"><small class="text-muted">{{blog?.date_added | date:'MMMM y, d'}}</small>
+                            </p><a [routerLink]="['/cro/cro-blogdetails',blog?._id]" class="card-link float-right"><small>View</small></a>
                             <!-- <a *ngIf="blog?.status == 'approved'" class="card-link float-right"><small>Deletea</small></a> -->
                             <!-- <a class="card-link float-right"><small>Deleteu</small></a> -->
                         </div>

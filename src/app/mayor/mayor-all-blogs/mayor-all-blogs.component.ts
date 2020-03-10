@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-mayor-all-blogs',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MayorAllBlogsComponent implements OnInit {
 
-  constructor() { }
+  blogs;
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get<{status: any, msg: any, result: any}>('https://onewater-mayor.herokuapp.com/allblogs')
+    .subscribe(result=> {
+      console.log(result)
+      this.blogs = result.result;
+    })
   }
 
 }

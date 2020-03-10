@@ -23,30 +23,28 @@
                         <tr>
                             <th>Mayor Name</th>
                             <th>Date Added</th>
-                       
-                            <th>Status</th>
+
+                            <th>Email</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><img src="https://images.pexels.com/photos/2741361/pexels-photo-2741361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class=" rounded-circle mr-3" alt="">Mayor</td>
+                          <tr *ngFor="let mayor of mayors">
+                            <td><img src="{{mayor?.image}}" class=" rounded-circle mr-3" alt="">{{ mayor?.name }}</td>
                             <td>
-                                <span>12,March 2020</span>
+                                <span>{{mayor?.date_added | date:'MMMM d, y'}}</span>
                             </td>
                             <!-- <td>
                                 <span>{{author.interest_category}}</span>
                                 </td> -->
                             <td>
-                              <!-- <p *ngIf="!author.rejected" class="status-btn" [ngStyle]="{
-                                'background-color':author.status === 'approved' ? '#8eff96' : '#FFFF33' ,'color':author.status === 'approved' ? '#015a01' : '#333300' }
-                              ">{{author.status}}</p> -->
-                              <p  class="status-btn" style="background-color: #ff988e ;color: #bd0303'">pending</p>
+                              <p  class="status-btn">{{mayor?.email}}</p>
                             </td>
 
                             <td>
                               <div class="action-buttons">
-                                <button type="button" name="button" class="btn view"  [routerLink]="['/mayor/mayordetails/']">
+                                <button type="button" name="button" class="btn view"  [routerLink]="['/mayor/mayordetails/',mayor?.main_id]">
                                 <i class="fa fa-eye"></i>
                                 View
                                 </button>

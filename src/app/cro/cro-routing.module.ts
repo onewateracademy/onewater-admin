@@ -27,15 +27,15 @@ const routes: Routes = [
     loadChildren: './app-cros/app-cros.module#AppCrosModule'
   },
   {
-    path: 'crodetails',
+    path: 'crodetails/:id',
     loadChildren: './cro-details/cro-details.module#CroDetailsModule'
   },
   {
-    path: 'pendingcrodetails',
+    path: 'pendingcrodetails/:id',
     loadChildren: './pending-cro-details/pending-cro-details.module#PendingCroDetailsModule'
   },
   {
-    path: 'cro-blogdetails',
+    path: 'cro-blogdetails/:id',
     loadChildren: './cro-blogdetails/cro-blogdetails.module#CroBlogdetailsModule'
   },
 ];
