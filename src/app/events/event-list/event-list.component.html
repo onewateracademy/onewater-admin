@@ -14,23 +14,23 @@
             <h4 class="content-head">All Events</h4>
             <!-- <p class="text-muted">This is 3 column contents</p> -->
             <div class="row">
-                 <div class="col-lg-4 col-md-6" >
+                 <div class="col-lg-4 col-md-6" *ngFor="let event of events">
                     <div class="card">
-                        <img class="blog-img" src="https://images.pexels.com/photos/2508810/pexels-photo-2508810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                        <img class="blog-img" src="{{event?.image}}" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">Event Name</h5>
+                            <h5 class="card-title">{{event?.name}}</h5>
                                 <h6>
                                     Event Description :
                                 </h6>
                                 <p class="card-text">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. At earum excepturi, accusamus nobis inventore quaerat? Distinctio accusantium voluptates pariatur facere.
+                                  {{event?.desc}}
                             </p>
                         </div>
                         <div class="card-footer">
                             <p class="card-text d-inline">
-                                <small class="text-muted">12, March 2020</small>
+                                <small class="text-muted">{{event?.date_of_event | date:'MMMM y, d'}}</small>
                             </p>
-                            <a [routerLink]="['/']" class="card-link float-right"><small>View</small></a>
+                            <a href="{{ event?.link }}" class="card-link float-right"><small>View</small></a>
                         </div>
                     </div>
                 </div>
