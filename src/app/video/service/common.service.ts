@@ -35,7 +35,7 @@ export class CommonService{
   }
 
   getLikes(videoid){
-    return this.http.get<{items:any}>(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoid}&key=AIzaSyD6jmeUuXMKaTvrlCjsFF-Pyyg079leR28`);
+    return this.http.get<{items:any}>(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoid}&key=AIzaSyBreX2usJ827boe6ZjEJ2KUdT9Uwbuui08`);
   }
 
   updatelikes(values){
