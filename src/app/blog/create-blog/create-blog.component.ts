@@ -73,6 +73,8 @@ export class CreateBlogComponent implements OnInit {
     };
     this.form = new FormGroup({
       title: new FormControl(null),
+      contributor_name: new FormControl(null),
+      contributor_company: new FormControl(null),
       image: new FormControl(null),
       data: new FormControl(null),
     });
