@@ -22,10 +22,12 @@ export class PendingAuthorsComponent implements OnInit {
 
   approve(mainid, blogid){
     this.common.approveAuthor(mainid, blogid);
+    alert("Author Approved");
   }
 
   reject(mainid, blogid){
     this.common.rejectAuthor(mainid, blogid);
+    alert("Author Rejected");
   }
 
 }
