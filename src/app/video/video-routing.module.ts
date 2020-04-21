@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'viewvideo/:id',
       loadChildren: './view-video/view-video.module#ViewVideoModule'
   },
+  {
+    path: 'landing-video',
+    loadChildren: './landing-video/landing-video.module#LandingVideoModule'
+  },
 ];
 
 @NgModule({
