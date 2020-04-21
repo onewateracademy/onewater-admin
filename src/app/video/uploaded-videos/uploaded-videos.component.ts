@@ -34,4 +34,12 @@ export class UploadedVideosComponent implements OnInit {
         return 'error';
     }
   }
+
+  delete(id) {
+    this.common.deletevideo(id)
+    .subscribe(result=> {
+      console.log(result);
+      alert("Video Deleted Successfully");
+    })
+  }
 }
