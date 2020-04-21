@@ -104,7 +104,7 @@ export class CreateBlogComponent implements OnInit {
     data.append("category", "Technology");
     data.append("category", "Health");
     this.http
-      .patch("http://localhost:3000/homeblog", data)
+      .patch("https://onewater-blogapi.herokuapp.com/homeblog", data)
       .subscribe((result) => {
         console.log(result);
       });
