@@ -23,6 +23,7 @@
     "@angular/platform-browser": "~8.2.5",
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
+    "@tinymce/tinymce-angular": "^3.5.0",
     "bootstrap": "^4.3.1",
     "compression": "^1.7.4",
     "express": "^4.17.1",

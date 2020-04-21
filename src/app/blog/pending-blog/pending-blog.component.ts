@@ -19,4 +19,18 @@ export class PendingBlogComponent implements OnInit {
       })
   }
 
+  delete(id,mainid){
+    console.log(id,mainid)
+
+    const data={
+      id:id,
+      mainid:mainid
+    }
+    this.blogservice.deleteUnApproveBlogByAdmin(mainid,id)
+    .subscribe(result=>{
+      console.log(result);
+      alert("BLog Deleted Successfully")
+    })
+  }
+
 }

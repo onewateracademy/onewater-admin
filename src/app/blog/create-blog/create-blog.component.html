@@ -42,10 +42,14 @@
                             </div>
                           </div>
                           <div  class="form-group row">
-                          <quill-editor [modules]="config" formControlName="data"></quill-editor>
+                            <editor
+                            apiKey="1mdr5t4sq8x8e030pr726paflv3fa6rd7pe381xgfcvb6nii"
+                            [init]="tinymceInit"
+                            formControlName="data"
+                             ></editor>
                           </div>
 
-                          <button type="submit">Update Blog</button>
+                          <button style="position: relative; z-index: 50;"type="submit">Update Blog</button>
                     </form>
                 </div>
             </div>

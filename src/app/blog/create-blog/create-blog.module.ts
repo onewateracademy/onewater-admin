@@ -5,6 +5,7 @@ import { CreateBlogComponent } from './create-blog.component';
 import {QuillModule} from "ngx-quill";
 import {FormsModule} from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 const routes: Route[]=[
     {
@@ -22,6 +23,7 @@ imports: [
     QuillModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    EditorModule
   ]
 })
 

@@ -77,4 +77,24 @@ export class BlogOperationService {
       "https://onewater-blogapi.herokuapp.com/deleteunapproveblog",id
     );
   }
+
+  deleteApproveBlogByAdmin(mainid,approveid) {
+    const id = {
+      allid : mainid,
+      approveid:approveid
+    }
+    return this.http.post<{ status: string; msg: string; result: any }>(
+      "https://onewater-blogapi.herokuapp.com/deleteapproveblog",id
+    );
+  }
+
+  deleteUnApproveBlogByAdmin(mainid,unapproveid) {
+    const id = {
+      mainid : mainid,
+      unapproveid:unapproveid
+    }
+    return this.http.post<{ status: string; msg: string; result: any }>(
+      "https://onewater-blogapi.herokuapp.com/unapprove-blog",id
+    );
+  }
 }
