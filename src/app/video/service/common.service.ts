@@ -34,6 +34,10 @@ export class CommonService{
     return this.http.get<{status:any,msg:any,result:any}>("https://onewater-video-api.herokuapp.com/video/"+id);
   }
 
+  deletevideo(id){
+    return this.http.delete<{status:any,msg:any,result:any}>("https://onewater-video-api.herokuapp.com/deletevideo/"+id);
+  }
+
   getLikes(videoid){
     return this.http.get<{items:any}>(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoid}&key=AIzaSyBreX2usJ827boe6ZjEJ2KUdT9Uwbuui08`);
   }

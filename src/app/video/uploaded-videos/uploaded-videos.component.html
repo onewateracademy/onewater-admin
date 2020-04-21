@@ -30,7 +30,7 @@
                                               <p class="mb-1">{{video.desc}}</p><small>{{video.views}} views</small>
 
                                               <small class="video-option"> <a [routerLink]="['/video/viewvideo/',video._id]">View</a>  </small>
-                                              <small class="video-option"> <a>Copy Link</a></small>
+                                              <small class="video-option" (click)="delete(video._id)"> <a>Delete</a></small>
                                              </div>
                                           </div>
 
