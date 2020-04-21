@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { CommonService } from 'src/app/video/service/common.service';
 
 @Component({
   selector: 'app-author-video-desc',
@@ -9,14 +10,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthorVideoDescComponent implements OnInit {
   video;
-  constructor(public http:HttpClient, public route:ActivatedRoute) { }
+  constructor(public common:CommonService, public route:ActivatedRoute) { }
 
   ngOnInit() {
 
     this.route.params.subscribe(result=>{
-      this.http.get<{status:any, msg:any, result:any}>('https://onewater-blogapi.herokuapp.com/video/'+result.id)
+      this.common.getAuthorSingleVideo(result.id)
       .subscribe(result=>{
-        this.video=result.result[0];
+        this.video=result.result;
         console.log(this.video)
       })
     })
