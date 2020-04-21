@@ -107,6 +107,7 @@ export class CreateBlogComponent implements OnInit {
       .patch("https://onewater-blogapi.herokuapp.com/homeblog", data)
       .subscribe((result) => {
         console.log(result);
+        alert("Landing Blog Updated");
       });
   }
 }
