@@ -99,10 +99,12 @@ export class CreateBlogComponent implements OnInit {
     data.append("title", this.form.value.title);
     data.append("image", this.form.value.image);
     data.append("desc", this.form.value.data);
+    data.append("contributor_name", this.form.value.contributor_name);
+    data.append("contributor_company", this.form.value.contributor_company);
     data.append("category", "Technology");
     data.append("category", "Health");
     this.http
-      .patch("https://onewater-blogapi.herokuapp.com/homeblog", data)
+      .patch("http://localhost:3000/homeblog", data)
       .subscribe((result) => {
         console.log(result);
       });
