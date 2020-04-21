@@ -39,10 +39,12 @@ image
     this.common.getLikes(this.image)
     .subscribe(result=>{
       console.log(result.items[0].statistics,'result displayed');
-
+   
       this.form.value.likes=result.items[0].statistics.likeCount,
       this.form.value.views=result.items[0].statistics.viewCount,
       this.common.addvideo(this.form.value);
+      this.form.reset();
+      alert("The video has been posted successfully.")
     })
   }
 

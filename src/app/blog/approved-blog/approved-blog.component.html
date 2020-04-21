@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <p class="card-text d-inline"><small class="text-muted">{{blog.date_added | date:'MMMM d, y'}}</small>
-                                    </p><a [routerLink]="['/blog/blogdetails/',blog.main_id]" class="card-link float-right"><small>View</small></a>
+                                    </p><a [routerLink]="['/blog/blogdetails/',blog.main_id]" class="card-link float-right mr-4"><small>View</small></a>
                                   <a (click)="delete(blog._id,blog.main_id)" class="card-link float-right"><small>Delete</small></a>
                                 </div>
                             </div>

@@ -42,11 +42,13 @@ showSubcatrgory;
   approve(blogid,mainid){
     console.log(blogid,mainid);
     this.blogservice.approve(blogid,mainid, this.category, this.subcategory);
+    alert("Blog Approved");
   }
 
   reject(blogid,mainid){
     console.log(blogid,mainid);
     this.blogservice.reject(blogid,mainid);
+    alert("Blog Rejected");
   }
 
   onChange(event){
