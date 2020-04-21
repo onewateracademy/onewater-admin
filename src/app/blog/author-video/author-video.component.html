@@ -21,22 +21,22 @@
                 <table class="table table-xs mb-0">
                     <thead>
                         <tr>
-                            <th>Author Name</th>
+                            <!-- <th>Author Name</th> -->
                             <th>Title</th>
-                            <th>Author Email</th>
+                            <!-- <th>Author Email</th> -->
                             <th>Date Added</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let video of videos">
-                            <td>{{video.author_name}}</td>
+                            <!-- <td>{{video.author_name}}</td> -->
                             <td>
                                 <span>{{video.title}}</span>
                             </td>
-                            <td>
+                            <!-- <td>
                                 <span>{{video.author_email}}</span>
-                                </td>
+                                </td> -->
                             <td>
                                 <span> {{video.date_added | date:'MMMM d, y'}} </span>
                             </td>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CommonService } from 'src/app/video/service/common.service';
 
 @Component({
   selector: 'app-author-video',
@@ -9,10 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class AuthorVideoComponent implements OnInit {
 
   videos;
-  constructor(public http:HttpClient) { }
+  constructor(public common:CommonService) { }
 
   ngOnInit() {
-    this.http.get<{status:any, msg:any, result:any}>('https://onewater-blogapi.herokuapp.com/video')
+    this.common.getAuthorVideos()
     .subscribe(result=>{
       this.videos=result.result.reverse();
       console.log(this.videos)
