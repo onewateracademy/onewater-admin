@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../service/common.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing-video',
@@ -10,7 +11,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LandingVideoComponent implements OnInit {
   video;
   form: FormGroup;
-  constructor(public common: CommonService) { }
+  safeSrc: SafeResourceUrl;
+  constructor(public common: CommonService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -18,7 +20,10 @@ export class LandingVideoComponent implements OnInit {
     })
     this.common.getPrimeVideo()
     .subscribe(result=> {
-      console.log(result)
+      console.log(result.result.video_link)
+      const link=this.getId(result.result.video_link);
+      this.video=`https://www.youtube.com/embed/${link}`;
+      this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl(this.video);
       this.video=result.result
     })
   }
@@ -33,5 +38,17 @@ export class LandingVideoComponent implements OnInit {
       alert("Video Updated")
     })
   }
+
+
+  getId(url) {
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+
+    if (match && match[2].length == 11) {
+        return match[2];
+    } else {
+        return 'error';
+    }
+}
 
 }
