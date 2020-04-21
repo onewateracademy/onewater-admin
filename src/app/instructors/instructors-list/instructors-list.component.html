@@ -30,19 +30,19 @@
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Profession</th>
+                            <th>Mobile No.</th>
                             <th>Date Added</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let instructor  of instructors">
-                            <td>{{ instructor.name}}</td>
+                            <td>{{ instructor.firstname}} {{ instructor.lastname}}</td>
                             <td>
                                 <span>{{ instructor.email}}</span>
                             </td>
                             <td>
-                                <span>{{ instructor.profession}}</span>
+                                <span>{{ instructor.mobile_no}}</span>
                                 </td>
                             <td>
                               <span>{{ instructor.date_added | date:'MMM d, y'}}</span>
@@ -54,10 +54,10 @@
                                 <i class="fa fa-eye"></i>
                                 View
                                 </button>
-                                <button (click)="approveinstructor(instructor._id, instructor.email)"  type="button" name="button" class="btn approved" *ngIf="instructor.status != 'approved'">
+                                <!-- <button (click)="approveinstructor(instructor._id, instructor.email)"  type="button" name="button" class="btn approved" *ngIf="instructor.status != 'approved'">
                                 <i class="fa fa-check-circle"></i>
                                 Approve
-                                </button>
+                                </button> -->
                                 <!-- <button  type="button" name="button" class="btn decline" *ngIf="instructor.status != 'approved'">
                                 <i class="fa fa-times-circle"></i>
                                 Decline

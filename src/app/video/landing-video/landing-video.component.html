@@ -21,18 +21,21 @@
                                 <div class="list-group-item list-group-item-action flex-column align-items-start" >
                                   <div class="row" >
                                     <div class="col-sm-3 p-0 m-0">
-                                      <img [src]="video.image" alt="" />
+                                      <div class="iframe-container">
+                                        <iframe width="560" height="315" [src]="safeSrc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                        </iframe>
+                                        </div>
                                     </div>
                                     <div class="col-sm-9">
                                       <div class="d-flex w-100 justify-content-between">
-                                          <h5 class="mb-1">Video Title </h5><small>Date</small>
+                                          <h5 class="mb-1">Video Title </h5><small>Date: {{video.date_added | date:'MMMM y,d'}}</small>
                                       </div>
 
                                       <div class="d-flex justify-content-end">
-                                        <button class="video-option btn btn-primary mr-5" [routerLink]="['/video/viewvideo/',video._id]">View</button> 
+                                        <!-- <button class="video-option btn btn-primary mr-5" [routerLink]="['/video/viewvideo/',video._id]">View</button> -->
                                         <button class="video-option btn btn-dark" data-toggle="modal" data-target="#postVideo"> Edit</button>
                                       </div>
-                                      
+
                                      </div>
                                   </div>
 
@@ -49,22 +52,22 @@
 <div class="modal" id="postVideo">
     <div class="modal-dialog">
       <div class="modal-content">
-  
-      
-  
+
+
+
         <!-- Modal body -->
         <div class="modal-body">
                         <h4 class="content-head">Post Video</h4>
                         <div class="row justify-content-center">
                                           <div class="col-lg-12">
-                                             
+
                                                       <div class="form-validation">
-                                                          <form class="form-valide" >
+                                                          <form class="form-valide" [formGroup]="form" (submit)="submit()">
                                                               <div class="form-group row">
                                                                   <label class="col-lg-4 col-form-label" for="val-username">Video Link <span class="text-danger">*</span>
                                                                   </label>
                                                                   <div class="col-lg-6">
-                                                                      <input  type="text" class="form-control" id="val-username" name="val-username" placeholder="Paste video link here..">
+                                                                      <input formControlName="link" type="text" class="form-control" id="val-username" name="val-username" placeholder="Paste video link here..">
                                                                   </div>
                                                               </div>
                                                               <!-- <div class="form-group row">
@@ -74,28 +77,28 @@
                                                                       <input formControlName="title" type="text" class="form-control" id="val-username" name="val-username" placeholder="Enter Video Title">
                                                                   </div>
                                                               </div> -->
-                                                          
-                                                            
+
+
                                                               <div class="form-group row">
                                                                   <div class="col-lg-8 ml-auto">
                                                                       <button type="submit" class="btn btn-primary">Post Video</button>
                                                                   </div>
                                                               </div>
-    
+
                                                           </form>
                                                       </div>
-                                                  
+
                                           </div>
                                       </div>
-                                  
-    
+
+
         </div>
-  
+
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
-  
+
       </div>
     </div>
   </div>
