@@ -107,7 +107,7 @@ console.log(temp)
     }
 
     getUsers(){
-      return this.http.get<{msg:any, users:any}>(`${this.baseURL}/listUser`)
+      return this.http.get<{msg:any, result:any}>(`https://onewater-auth.herokuapp.com/users`)
     }
 
 

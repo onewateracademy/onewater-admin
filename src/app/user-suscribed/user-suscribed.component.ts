@@ -13,7 +13,7 @@ export class UserSuscribedComponent implements OnInit {
   suscribed;
 
   ngOnInit() {
-    this.http.get<{status:string, msg:string, result:any}>('https://onewater-job-api.herokuapp.com/suscribed')
+    this.http.get<{status:string, msg:string, result:any}>('https://onewater-auth.herokuapp.com/suscribed')
     .subscribe(result=>{
       console.log(result);
       this.suscribed=result.result;

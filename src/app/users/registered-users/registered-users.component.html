@@ -27,8 +27,8 @@
                         <tr>
                           <!-- <th>Name</th> -->
 
+                          <th>Name</th>
                           <th>Email</th>
-                          <th>Last login</th>
                           <!-- <th>Registration Date</th> -->
                         </tr>
                       </thead>
@@ -42,10 +42,10 @@
                             />{{ user.name }}
                           </td> -->
                           <td>
-                            <span>{{ user.email }}</span>
+                            <span>{{ user?.name }}</span>
                           </td>
                           <td>
-                            <span>{{ user.lastlogin }}</span>
+                            <span>{{ user?.email }}</span>
                           </td>
                           <!-- <td>
                             <span>{{ user.regdate }}</span>

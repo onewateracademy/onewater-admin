@@ -25,7 +25,8 @@
                   <table class="table table-xs mb-0">
                     <thead>
                       <tr>
-                        <th>Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
 
                         <th>Email</th>
                       </tr>
@@ -33,11 +34,10 @@
                     <tbody>
                       <tr *ngFor="let user of suscribed">
                         <td>
-                          <img
-                            [src]="user.img"
-                            class=" rounded-circle mr-3"
-                            alt=""
-                          />{{ user.name }}
+                          {{ user.firstname }}
+                        </td>
+                        <td>
+                          {{ user.lastname }}
                         </td>
                         <td>
                           <span>{{ user.email }}</span>

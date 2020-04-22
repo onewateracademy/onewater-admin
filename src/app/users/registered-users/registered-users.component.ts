@@ -15,7 +15,7 @@ export class RegisteredUsersComponent implements OnInit {
     this.auth.getUsers()
     .subscribe(result=> {
       console.log(result);
-      this.users=result.users;
+      this.users=result.result;
     })
   }
 
