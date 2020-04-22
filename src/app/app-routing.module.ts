@@ -63,11 +63,11 @@ const routes: Routes = [
 path: 'subs',
 loadChildren: './user-suscribed/user-suscribed.module#UserSuscribedModule'
 }
-//   {
-//   path: '**',
-//   redirectTo:'/login',
-//   pathMatch: 'full'
-// },
+  {
+  path: '**',
+  redirectTo:'/dashboard',
+  pathMatch: 'full'
+},
 ];
 
 @NgModule({
