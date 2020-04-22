@@ -62,7 +62,7 @@ const routes: Routes = [
 {
 path: 'subs',
 loadChildren: './user-suscribed/user-suscribed.module#UserSuscribedModule'
-}
+},
   {
   path: '**',
   redirectTo:'/dashboard',
